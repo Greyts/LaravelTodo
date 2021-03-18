@@ -1,0 +1,231 @@
+{
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
+    ]
+}
+
+.babelrc
+
+
+return redirect('/api/tasks');
+
+<Route path='/tasks'>
+                        <Tasks/ >
+                    </Route>
+                    
+                    
+                    
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" title="title" onChange={this.handleChange} />
+                                <label for="title">Title</label>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+
+
+                        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card card-new-task">
+                    <div class="card-header">New Task</div>
+                    <div class="card-body">
+                        <form onSubmit={this.handleSubmit}>
+                        <input type="text" title="title" onChange={this.handleChange} />
+                                <label for="title">Title</label>
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             handleSubmit(event) {
+        event.preventDefault();
+
+        const task = {
+            tasks: this.state.title,
+            tasks: this.state.iscomplete
+        }
+
+    axios.post('/tasks', { task }).then(response => {
+        console.log(response);
+        console.log(response.data);
+    })
+
+    constructor () {
+        super();
+        this.state = {
+            tasks: []
+        }
+    }
+}
+
+componentDidMount() {
+
+        axios.get('/tasks').then(response => {
+            this.setState({
+                tasks: response.data
+            });
+        }).catch(errors => {
+            console.log(errors);
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Header from './Header'
+
+//{this.state.tasks.map(task => <li>{task.body}</li>)}
+
+export default class Tasks extends Component {
+
+    state({tasks: []})
+
+    async componentDidMount(){
+        let result = await axios.get("/api/tasks")
+    }
+
+    render() {
+
+        return(
+    <div class="container">
+        sadfds
+    </div>  
+                /* <div class="card">
+                    <div class="card-header">Tasks</div>
+
+                    <div class="card-body">
+                    <table class="table table-striped">
+                        @foreach ($tasks as $task)
+                            <tr>
+                                <td>
+                                    @if ($task->is_complete)
+                                        <s>{{ $task->title }}</s>
+                                    @else
+                                        {{ $task->title }}
+                                    @endif
+                                </td>
+                                <td class="text-right">
+                                    @if (! $task->is_complete)
+                                        <form method="POST" action="{{ route('tasks.update', $task->id) }}">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="btn btn-primary">Complete</button>
+                                        </form>
+                                 
+                                </td>
+                            </tr>
+                       
+                    </table>
+
+                        {{ $tasks->links() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>         */
+            );
+        }
+}
+
+if (document.getElementById('tasks')) {
+    ReactDOM.render(<Tasks />, document.getElementById('tasks'));
+}
+
+
+
+
+
+
+
+było w header
+
+
+constructor () {
+        super();
+        this.state = {
+            tasks: []
+        }
+    }
+
+    componentWillMount() {
+
+        axios.get('/tasks').then(response => {
+            this.setState({
+                tasks: response.date
+            });
+        }).catch(errors => {
+            console.log(errors);
+        })
+    }
+
+
+    <li class="nav-item">
+                                            <Link to="/register">Register</Link>
+                                        </li>
+                                        {this.state.tasks.map(task => <li>{task.body}</li>)}
+
+
+
+
+
+                                        constructor () {
+    super()
+    this.state = {
+      tasks: []
+    }
+  }
+
+
+  componentDidMount () {
+    axios.get('/api/tasks').then(response => {
+      this.setState({
+        tasks: response.data
+      })
+    })
+  }
+
+
+    componentDidMount () {
+    axios.get('/api/tasks').then(response => {
+      this.setState({
+        tasks: response.data
+      })
+    })
+  }
+
+
+
+
+
+
+
+   <Link to='api/create'>
+                  Create new task
+                </Link>
+                <ul>
+                  {tasks.map(task => (
+                    <Link
+                      
+                      to={`/${task.id}`}
+                      key={task.id}
+                    >
+                      {task.name}
+                      <span>
+                        {task.tasks_count}
+                      </span>
+                    </Link>
+                  ))}
+                </ul>

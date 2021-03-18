@@ -16,9 +16,11 @@ class TaskController extends Controller
             ->orderByDesc('created_at')
             ->paginate(5);
 
-        return view('tasks', [
-            'tasks' => $tasks
-        ]);
+
+        return response()->json($tasks);
+        
+
+        
     }
 
     public function store(Request $request)
@@ -34,7 +36,7 @@ class TaskController extends Controller
 
         session()->flash('status', 'Task created !');
 
-        return redirect('/tasks');
+        return redirect('/api/tasks');
     }
 
     public function update(Tasks $task)
@@ -46,6 +48,6 @@ class TaskController extends Controller
 
         session()->flash('status', 'Task completed !');
 
-        return redirect('/tasks');
+        return redirect('/api/tasks');
     }
 }
